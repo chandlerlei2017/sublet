@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @count = current_user.listings.count
+    @user = current_user
+    @all_listings = Listing.all
   end
-
 end

@@ -1,6 +1,15 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!
-  def new
+
+  def new; end
+
+  def show
+    if current_listing.present?
+      @listing = current_listing
+    else
+      flash[:notice] = "Listing could not be found"
+      redirect_back fallback_location: user_root_path
+    end
   end
 
   def create
@@ -29,5 +38,13 @@ class ListingsController < ApplicationController
       :ammenities,
       :description
     )
+  end
+
+  def current_listing
+    @__current_listing = Listing.find_by(id: show_listing_params[:listing_id])
+  end
+
+  def show_listing_params
+    params.permit(:listing_id)
   end
 end

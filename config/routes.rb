@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#show', as: :user_root
 
   get 'listings/new', to: 'listings#new'
+  get 'listing', to: 'listings#show'
   post 'listings/create', to: 'listings#create'
 end
