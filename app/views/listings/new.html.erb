@@ -1,1 +1,44 @@
 <h2 class="text-center">Please fill out the form to list your sublet!</h2>
+<%= form_for :listing, url: listings_create_path do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-12">
+      <%= f.label "Building Name" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-8">
+      <%= f.label :street %>
+      <%= f.text_field :street, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :city %>
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= f.label :country %>
+      <%= f.text_field :country, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= f.label "Waterloo Walking Distance" %>
+      <%= f.text_field :uw_dist, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= f.label "Laurier Walking Distance" %>
+      <%= f.text_field :laurier_dist, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-12">
+      <%= f.label :ammenities %>
+      <%= f.text_area :ammenities, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-12">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+      <%= f.submit "Create my listing!", class: "btn btn-primary mt-5" %>
+    </div>
+  </div>
+
+
+<% end %>
