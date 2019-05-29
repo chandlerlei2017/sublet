@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
   def show
     if current_listing.present?
       @listing = current_listing
-      @address = current_listing.street + ', ' + current_listing.postal_code + ', ' + current_listing.province
+      @address = [@listing.street, @listing.city, @listing.province, @listing.postal_code].join(', ')
     else
       flash[:notice] = "Listing could not be found"
       redirect_back fallback_location: user_root_path
@@ -33,11 +33,15 @@ class ListingsController < ApplicationController
       :street,
       :city,
       :postal_code,
+      :province,
       :country,
       :uw_dist,
       :laurier_dist,
       :ammenities,
-      :description
+      :description,
+      :cost,
+      :start_date,
+      :end_date
     )
   end
 
