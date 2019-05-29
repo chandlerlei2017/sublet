@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard', to: 'dashboard#show', as: :user_root
+
+  get 'listings/new', to: 'listings#new'
+  post 'listings/create', to: 'listings#create'
 end
