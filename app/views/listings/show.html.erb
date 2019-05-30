@@ -1,5 +1,7 @@
 <% if current_user == @listing.user %>
   <%= link_to "Delete this listing!", listings_destroy_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
+<% else %>
+  <%= link_to "Save this listing!", listings_save_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
 <% end %>
 <h2>Listing Name: <%= @listing.name %></h2>
 <h5>Address: <%= @address %></h5>
