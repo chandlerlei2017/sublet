@@ -38,6 +38,16 @@ class ListingsController < ApplicationController
     redirect_to user_root_path
   end
 
+  def save_remove
+    saved_list.listings = saved_list.listings.reject{ |listing| listing == current_listing }
+    if saved_list.save
+      flash[:notice] = "Listing was removed from save list!"
+    else
+      flash[:notice] = "Listing could not be removed from your save list!"
+    end
+    redirect_to user_root_path
+  end
+
   def destroy
     if current_listing.nil? || current_listing.user != current_user
       flash[:notice] = "This listing could not be deleted"

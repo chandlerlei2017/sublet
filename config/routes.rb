@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   post 'listings/create', to: 'listings#create'
   post 'listings/destroy', to: 'listings#destroy'
   post 'listings/save', to: 'listings#save'
-
+  post 'listings/save/remove', to: 'listings#save_remove'
 end
