@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'listings/new', to: 'listings#new'
   get 'listing', to: 'listings#show'
   post 'listings/create', to: 'listings#create'
+  post 'listings/destroy', to: 'listings#destroy'
 end

@@ -6,6 +6,7 @@ class ListingsController < ApplicationController
   def show
     if current_listing.present?
       @listing = current_listing
+      @user = current_user
       @address = [@listing.street, @listing.city, @listing.province, @listing.postal_code].join(', ')
     else
       flash[:notice] = "Listing could not be found"
@@ -21,6 +22,16 @@ class ListingsController < ApplicationController
       flash[:notice] = "Your listing was successfully created"
     else
       flash[:notice] = "Sorry! Your listing could not be created!"
+    end
+    redirect_to user_root_path
+  end
+
+  def destroy
+    if current_listing.nil? || current_listing.user != current_user
+      flash[:notice] = "This listing could not be deleted"
+    else
+      current_listing.destroy
+      flash[:notice] = "The listing was successfully deleted"
     end
     redirect_to user_root_path
   end
