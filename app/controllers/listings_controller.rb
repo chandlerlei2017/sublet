@@ -17,7 +17,7 @@ class ListingsController < ApplicationController
   def create
     listing = current_user.listings.new()
     listing.assign_attributes(listing_params)
-    byebug;
+
     if listing.save
       flash[:notice] = "Your listing was successfully created"
     else
