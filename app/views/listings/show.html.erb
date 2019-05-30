@@ -1,5 +1,10 @@
 <% if current_user == @listing.user %>
-  <%= link_to "Delete this listing!", listings_destroy_path(listing_id: @listing.id), method: :post, class: "btn btn-primary "%>
+  <%= link_to "Delete this listing!", listings_destroy_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
 <% end %>
-<h2><%= @listing.name %></h2>
-<h5><%= @address %></h5>
+<h2>Listing Name: <%= @listing.name %></h2>
+<h5>Address: <%= @address %></h5>
+<h5>Available from: <%= @listing.start_date.strftime("%m, %d, %Y") %> to <%= @listing.end_date.strftime("%m, %d, %Y") %></h5>
+<h5>Walking time to UW: <%= @listing.uw_dist %> mins</h5>
+<h5>Walking time to Laurier: <%= @listing.laurier_dist %> mins</h5>
+<h5>Ammenities: <%= @listing.ammenities %> mins</h5>
+<h5>Description: <%= @listing.description %> mins</h5>
