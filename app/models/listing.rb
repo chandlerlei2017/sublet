@@ -34,7 +34,7 @@ class Listing < ApplicationRecord
   end
 
   def destination_uw
-    "University+Of+Waterloo"
+    "Davis+Centre+Library,200+Ring+Road,Waterloo+Ontario"
   end
 
   def destination_laurier
