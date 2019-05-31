@@ -1,3 +1,12 @@
+<script>
+  function initMap() {
+    showMap("<%= @address %>");
+  }
+</script>
+
+<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_api_key+'&callback=initMap' %>
+<%= javascript_include_tag 'gmaps.js' %>
+
 <% if @user == @listing.user %>
   <%= link_to "Delete this listing!", listings_destroy_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
 <% elsif !(@user.saved_listing.listings.include?(@listing)) %>
@@ -12,3 +21,4 @@
 <h5>Walking time to Laurier: <%= @listing.laurier_dist %> mins</h5>
 <h5>Ammenities: <%= @listing.ammenities %> mins</h5>
 <h5>Description: <%= @listing.description %> mins</h5>
+<div id="map" style="height: 350px"></div>
