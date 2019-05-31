@@ -34,5 +34,5 @@ en:
   commute_mode:
     1 : "driving"
     2 : "walking"
-    3 : "bicycling"
-    4 : "transit"
+    3 : "transit"
+    4 : "bicycling"
