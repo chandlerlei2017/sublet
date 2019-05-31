@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  commute_mode:
+    1 : "driving"
+    2 : "walking"
+    3 : "bicycling"
+    4 : "transit"

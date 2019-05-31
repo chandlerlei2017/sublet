@@ -7,7 +7,6 @@ class ListingsController < ApplicationController
     if current_listing.present?
       @listing = current_listing
       @user = current_user
-      @address = [@listing.street, @listing.city, @listing.province, @listing.postal_code].join(', ')
     else
       flash[:notice] = "Listing could not be found"
       redirect_back fallback_location: user_root_path
@@ -67,9 +66,7 @@ class ListingsController < ApplicationController
       :city,
       :postal_code,
       :province,
-      :country,
-      :uw_dist,
-      :laurier_dist,
+      :transport_mode,
       :ammenities,
       :description,
       :cost,

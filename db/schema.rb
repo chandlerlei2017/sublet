@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_190941) do
+ActiveRecord::Schema.define(version: 2019_05_31_150322) do
 
   create_table "listings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2019_05_30_190941) do
     t.string "city"
     t.string "postal_code"
     t.string "country"
-    t.integer "uw_dist"
-    t.integer "laurier_dist"
     t.text "ammenities"
     t.text "description"
     t.datetime "created_at", null: false
@@ -29,6 +27,9 @@ ActiveRecord::Schema.define(version: 2019_05_30_190941) do
     t.integer "cost"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer "transport_mode"
+    t.string "uw_commute"
+    t.string "laurier_commute"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
