@@ -29,4 +29,7 @@ Rails.application.routes.draw do
 
   post 'comments/create', to: 'comments#create'
   delete 'comments/delete', to: 'comments#delete'
+
+  post 'reply/create', to: 'reply#create'
+  delete 'reply/delete', to: 'reply#delete'
 end

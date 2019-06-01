@@ -1,0 +1,10 @@
+<% comment.replies.each do |reply| %>
+  <div class="col-sm-11 offset-sm-1">
+    <hr/>
+    <h5><%=reply.email%> said:</h5>
+    <p><%= reply.body%></p>
+    <% if @user == reply.user %>
+      <%= link_to "delete", reply_delete_path(comment_id: comment.id), method: :delete, data: { confrim: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>

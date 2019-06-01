@@ -31,10 +31,14 @@
 <% @comments.each do |comment| %>
   <h5><%=comment.email%> said:</h5>
   <p><%= comment.body%></p>
+  <%= link_to "reply", user_root_path, id: "create_reply", class: "mr-3" %>
+
   <% if @user == comment.user %>
     <%= link_to "delete", comments_delete_path(comment_id: comment.id), method: :delete, data: { confrim: 'Are you sure?' } %>
   <% end %>
-  <%= link_to "reply" %>
+
+  <%= render 'shared/replies', comment: comment %>
+  <%= render 'shared/reply_form', comment_id: comment.id %>
   <hr/>
 <% end %>
 
@@ -43,7 +47,7 @@
   <%= f.hidden_field :listing_id, value: @listing.id %>
 
   <div class="form-group">
-    <%= f.label :body %>
+    <%= f.label "Comment" %>
     <%= f.text_area :body, class: "form-control" %>
   </div>
 

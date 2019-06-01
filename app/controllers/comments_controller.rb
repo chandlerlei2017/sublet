@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
   end
 
   def delete
-    byebug
     comment = Comment.find_by(id: delete_comment_params["comment_id"])
 
     if comment.user != current_user

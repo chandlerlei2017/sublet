@@ -1,0 +1,22 @@
+<div id="comment_<%= local_assigns[:comment_id] %>" class="col-sm-11 offset-sm-1 reply">
+  <%= form_for :reply, url: reply_create_path do |f| %>
+    <%= f.hidden_field :email, value: @user.email %>
+    <%= f.hidden_field :comment_id, value: local_assigns[:comment_id] %>
+
+    <div class="form-group">
+      <%= f.label "Reply" %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+
+    <%= f.submit "post reply!", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<script>
+  $('#create_reply').click(function (event) {
+    $('#comment_<%= local_assigns[:comment_id] %>').css("visibility", "visible");
+    $('#comment_<%= local_assigns[:comment_id] %>').css("height", "100%");
+    $( this ).css("visibility", "hidden");
+    event.preventDefault();
+  });
+</script>
