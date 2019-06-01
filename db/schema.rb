@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_031800) do
+ActiveRecord::Schema.define(version: 2019_06_01_033234) do
 
   create_table "applied_listings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_applied_listings_on_user_id"
+  end
+
+  create_table "applied_listings_listings", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "applied_listing_id"
+    t.integer "listing_id"
   end
 
   create_table "listings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,11 +43,6 @@ ActiveRecord::Schema.define(version: 2019_06_01_031800) do
     t.string "uw_commute"
     t.string "laurier_commute"
     t.index ["user_id"], name: "index_listings_on_user_id"
-  end
-
-  create_table "listings_applied_listings", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "applied_listing_id"
-    t.integer "listing_id"
   end
 
   create_table "listings_saved_listings", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

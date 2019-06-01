@@ -17,7 +17,6 @@ class ShowListingsController < ApplicationController
   end
 
   def applied_listings
-    byebug
     current_user.applied_listing ||= AppliedListing.new
     current_user.save
 
