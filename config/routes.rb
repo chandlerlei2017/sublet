@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   get 'listing', to: 'listings#show'
   post 'listings/create', to: 'listings#create'
   post 'listings/destroy', to: 'listings#destroy'
-  post 'listings/save', to: 'listings#save'
-  post 'listings/save/remove', to: 'listings#save_remove'
+  # post 'listings/save', to: 'listings#save'
+  # post 'listings/save/remove', to: 'listings#save_remove'
+
+  post 'listings/save', to: 'saved_listings#save'
+  post 'listings/save/remove', to: 'saved_listings#save_remove'
 
   get 'listings/apply', to: 'listings#apply'
 end
