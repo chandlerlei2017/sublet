@@ -8,6 +8,8 @@ class ListingsController < ListingsBaseController
 
       @saved = @user.saved_listing&.listings&.include?(@listing)
       @applied = @user.applied_listing&.listings&.include?(@listing)
+
+      @comments = @listing.comments.all
     else
       flash[:notice] = "Listing could not be found"
       redirect_back fallback_location: user_root_path

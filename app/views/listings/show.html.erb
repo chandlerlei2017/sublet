@@ -23,4 +23,28 @@
 <h5>Commute time to Laurier(<%= @listing.commute_mode %>): <%= @listing.laurier_commute %></h5>
 <h5>Ammenities: <%= @listing.ammenities %> mins</h5>
 <h5>Description: <%= @listing.description %> mins</h5>
-<div id="map" style="height: 350px"></div>
+<div id="map" style="height: 350px" class="mt-3 mb-3"></div>
+
+<h2>Comments</h2>
+<hr/>
+
+<% @comments.each do |comment| %>
+  <h5>comment.email said:</h5>
+  <p>comment.body</p>
+  <% if @user == @listing.user %>
+    <%= link_to "delete", comments_delete_path(comment_id: comment.id), method: delete, data: { confrim: 'Are you sure?' } %>
+  <% end %>
+  <hr/>
+<% end %>
+
+<%= form_for :comment, url: comments_create_path do |f| %>
+  <%= f.hidden_field :email, value: @user.email %>
+  <%= f.hidden_field :listing_id, value: @listing.id %>
+
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+
+  <%= f.submit "post comment!", class: "btn btn-primary" %>
+<% end %>

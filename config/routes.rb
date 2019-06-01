@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   get 'listings/all', to: 'show_listings#all_listings', as: :all_listings
   get 'listings/saved', to: 'show_listings#saved_listings', as: :saved_listings
   get 'listings/applied', to: 'show_listings#applied_listings', as: :applied_listings
+
+  post 'comments/create', to: 'comments#create'
+  delete 'comments/delete', to: 'comments#delete'
 end
