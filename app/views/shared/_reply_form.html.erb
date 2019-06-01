@@ -13,7 +13,7 @@
 </div>
 
 <script>
-  $('#create_reply').click(function (event) {
+  $('#create_reply_<%= local_assigns[:comment_id] %>').click(function (event) {
     $('#comment_<%= local_assigns[:comment_id] %>').css("visibility", "visible");
     $('#comment_<%= local_assigns[:comment_id] %>').css("height", "100%");
     $( this ).css("visibility", "hidden");
