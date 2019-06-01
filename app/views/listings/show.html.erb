@@ -34,6 +34,7 @@
   <% if @user == comment.user %>
     <%= link_to "delete", comments_delete_path(comment_id: comment.id), method: :delete, data: { confrim: 'Are you sure?' } %>
   <% end %>
+  <%= link_to "reply" %>
   <hr/>
 <% end %>
 

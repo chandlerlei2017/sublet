@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_142754) do
+ActiveRecord::Schema.define(version: 2019_06_01_164337) do
 
   create_table "applied_listings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 2019_06_01_142754) do
   create_table "listings_saved_listings", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "saved_listing_id"
     t.integer "listing_id"
+  end
+
+  create_table "replies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "comment_id"
   end
 
   create_table "saved_listings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
