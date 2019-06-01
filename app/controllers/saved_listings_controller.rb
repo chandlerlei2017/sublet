@@ -8,7 +8,7 @@ class SavedListingsController < ListingsBaseController
       flash[:notice] = "Listing could not be added to your save list!"
     end
 
-    redirect_to user_root_path
+    redirect_to saved_listings_path
   end
 
   def save_remove
@@ -18,16 +18,12 @@ class SavedListingsController < ListingsBaseController
     else
       flash[:notice] = "Listing could not be removed from your save list!"
     end
-    redirect_to user_root_path
+    redirect_to saved_listings_path
   end
 
   private
 
   def saved_list
-    if current_user.saved_listing.present?
-      current_user.saved_listing
-    else
-      current_user.saved_listing = saved_listing.new
-    end
+    current_user.saved_listing ||= saved_listing.new
   end
 end
