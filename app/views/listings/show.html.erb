@@ -29,10 +29,10 @@
 <hr/>
 
 <% @comments.each do |comment| %>
-  <h5>comment.email said:</h5>
-  <p>comment.body</p>
-  <% if @user == @listing.user %>
-    <%= link_to "delete", comments_delete_path(comment_id: comment.id), method: delete, data: { confrim: 'Are you sure?' } %>
+  <h5><%=comment.email%> said:</h5>
+  <p><%= comment.body%></p>
+  <% if @user == comment.user %>
+    <%= link_to "delete", comments_delete_path(comment_id: comment.id), method: :delete, data: { confrim: 'Are you sure?' } %>
   <% end %>
   <hr/>
 <% end %>
