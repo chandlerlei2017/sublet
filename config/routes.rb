@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   post 'listings/destroy', to: 'listings#destroy'
   post 'listings/save', to: 'listings#save'
   post 'listings/save/remove', to: 'listings#save_remove'
+
+  get 'listings/apply', to: 'listings#apply'
 end

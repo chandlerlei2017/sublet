@@ -37,6 +37,10 @@ class ListingsController < ApplicationController
     redirect_to user_root_path
   end
 
+  def apply
+    redirect_to user_root_path
+  end
+
   def save_remove
     saved_list.listings = saved_list.listings.reject{ |listing| listing == current_listing }
     if saved_list.save

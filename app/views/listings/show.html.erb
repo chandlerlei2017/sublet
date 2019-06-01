@@ -11,8 +11,10 @@
   <%= link_to "Delete this listing!", listings_destroy_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
 <% elsif !(@user.saved_listing.listings.include?(@listing)) %>
   <%= link_to "Save this listing!", listings_save_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
+  <%= link_to "Apply for this listing", listings_apply_path(listing_id: @listing.id), method: :get, class: "btn btn-primary mb-3"%>
 <% else %>
   <%= link_to "Unsave listing", listings_save_remove_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
+  <%= link_to "Apply for this listing", listings_apply_path(listing_id: @listing.id), method: :get, class: "btn btn-primary mb-3"%>
 <% end %>
 <h2>Listing Name: <%= @listing.name %></h2>
 <h5>Address: <%= @listing.address %></h5>

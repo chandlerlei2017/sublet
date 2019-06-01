@@ -5,6 +5,7 @@ class Listing < ApplicationRecord
 
   belongs_to :user
   has_and_belongs_to_many :saved_listings
+  has_and_belongs_to_many :applied_listings
 
   before_save :calc_commute
 
