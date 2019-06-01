@@ -29,3 +29,20 @@
   visibility: hidden;
   height: 0;
 }
+
+.notify-icon {
+  color: #828282;
+  text-decoration: none !important;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1rem;
+  border-bottom: 2px solid #F7F7F7;
+  font-weight: bold;
+
+  -webkit-transition: color 400ms ease !important;
+  transition: color 400ms ease !important;
+}
+
+.notify-icon:hover {
+  color: #003853;
+}
