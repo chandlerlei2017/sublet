@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <title>Sublet</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,8 +10,20 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %> text-center">
+              <%= value %>
+        </div>
+    <% end %>
     <div class="col-sm-10 offset-sm-1 mt-5 mb-5">
       <%= yield %>
     </div>
   </body>
+  <script>
+    $(function() {
+      setTimeout(function(){
+        $('.alert').fadeOut(500, function() {});
+      }, 1000);
+    });
+  </script>
 </html>
