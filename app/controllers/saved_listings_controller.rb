@@ -1,6 +1,4 @@
 class SavedListingsController < ListingsBaseController
-  before_action :authenticate_user!
-
   def save
     saved_list.listings.append(current_listing)
 
