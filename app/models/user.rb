@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :listings
   has_one :saved_listing
+  has_one :applied_listing
 end
