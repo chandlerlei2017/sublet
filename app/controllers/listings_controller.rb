@@ -5,6 +5,9 @@ class ListingsController < ListingsBaseController
     if current_listing.present?
       @listing = current_listing
       @user = current_user
+
+      @saved = @user.saved_listing&.listings&.include?(@listing)
+      @applied = @user.applied_listing&.listings&.include?(@listing)
     else
       flash[:notice] = "Listing could not be found"
       redirect_back fallback_location: user_root_path
@@ -20,10 +23,6 @@ class ListingsController < ListingsBaseController
     else
       flash[:notice] = "Sorry! Your listing could not be created!"
     end
-    redirect_to user_root_path
-  end
-
-  def apply
     redirect_to user_root_path
   end
 

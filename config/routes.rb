@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   post 'listings/save', to: 'saved_listings#save'
   post 'listings/save/remove', to: 'saved_listings#save_remove'
 
-  get 'listings/apply', to: 'listings#apply'
+  post 'listings/apply', to: 'applied_listings#apply'
+  post 'listings/unapply', to: 'applied_listings#unapply'
 
   get 'listings/my', to: 'show_listings#my_listings', as: :my_listings
   get 'listings/all', to: 'show_listings#all_listings', as: :all_listings

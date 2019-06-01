@@ -24,6 +24,6 @@ class SavedListingsController < ListingsBaseController
   private
 
   def saved_list
-    current_user.saved_listing ||= saved_listing.new
+    current_user.saved_listing ||= SavedListing.new
   end
 end

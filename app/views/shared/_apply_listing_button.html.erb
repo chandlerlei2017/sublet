@@ -1,0 +1,5 @@
+<% if local_assigns[:show] %>
+  <%= link_to "Unapply for this listing", listings_unapply_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
+<% else %>
+  <%= link_to "Apply for this listing", listings_apply_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
+<% end %>
