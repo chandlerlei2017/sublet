@@ -17,14 +17,32 @@
           </div>
           <div class="col-sm-2">
             <i class="far fa-calendar-alt"></i>
-            <%= listing.start_date.strftime("%m-%d-%Y") %>
+            <%= listing.created_at.strftime("%m-%d-%Y") %>
           </div>
         </h5>
       </div>
 
       <div id="collapse<%= listing.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
-          <p>This will be some info about the listing</p>
+          <h5><%= listing.name%></h5>
+          <div class="row mt-3">
+            <div class="col-sm-3">
+              <p><strong>Lister: </strong><%= listing.user.email %></p>
+            </div>
+            <div class="col-sm-3">
+              <p><strong>Start Date: </strong><%= listing.start_date.strftime('%m-%d-%Y') %></p>
+            </div>
+            <div class="col-sm-3">
+              <p><strong>End Date: </strong><%= listing.end_date.strftime('%m-%d-%Y') %></p>
+            </div>
+            <div class="col-sm-3">
+              <p><strong>Term: </strong><%= ((listing.end_date - listing.start_date)/2628002.88).round %> months </p>
+            </div>
+            <div class="col-sm-12">
+              <p><strong>Description: </strong></p>
+              <p><%= listing.description %></p>
+            </div>
+          </div>
           <%= link_to "View Listing", listing_path(listing_id: listing.id)%>
         </div>
       </div>

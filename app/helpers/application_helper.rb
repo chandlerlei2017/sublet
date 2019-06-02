@@ -12,7 +12,7 @@ module ApplicationHelper
     if date.today?
       date.strftime('%-I:%M %p')
     elsif date.to_date == Date.yesterday
-      'yesterday'
+      'Yesterday'
     elsif date.to_date > 1.week.ago.to_date
       date.strftime('%A')
     else
