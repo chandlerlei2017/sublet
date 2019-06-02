@@ -7,4 +7,16 @@ module ApplicationHelper
         when 'alert' then "alert alert-error"
     end
   end
+
+  def time_display(date)
+    if date.today?
+      date.strftime('%-I:%M %p')
+    elsif date.to_date == Date.yesterday
+      'yesterday'
+    elsif date.to_date > 1.week.ago.to_date
+      date.strftime('%A')
+    else
+      date.strftime('%m, %d, %Y')
+    end
+  end
 end

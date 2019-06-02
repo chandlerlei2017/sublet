@@ -32,11 +32,18 @@
   <h5><%=comment.email%> said:</h5>
   <p><%= comment.body%></p>
 
-  <% if @user == comment.user %>
-    <%= link_to "delete", comments_delete_path(comment_id: comment.id), method: :delete, data: { confrim: 'Are you sure?' }, class: "mr-3" %>
-  <% end %>
+  <div class="row">
+    <div class="col-sm-10">
+      <% if @user == comment.user %>
+        <%= link_to "delete", comments_delete_path(comment_id: comment.id), method: :delete, data: { confrim: 'Are you sure?' }, class: "mr-3" %>
+      <% end %>
 
-  <%= link_to "reply", user_root_path, id: "create_reply_#{comment.id}" %>
+      <%= link_to "reply", user_root_path, id: "create_reply_#{comment.id}" %>
+    </div>
+    <div class="col-sm-2 text-right">
+      <span><%= time_display(comment.created_at) %></span>
+    </div>
+  </div>
 
   <%= render 'shared/replies', comment: comment %>
   <%= render 'shared/reply_form', comment_id: comment.id %>
