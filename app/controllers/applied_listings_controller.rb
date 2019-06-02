@@ -4,6 +4,7 @@ class AppliedListingsController < ListingsBaseController
     applied_list.listings.append(current_listing)
 
     if applied_list.save
+      send_notification(current_user.email, 3)
       flash[:notice] = "You have succesfully applied for this listing!"
     else
       flash[:notice] = "Application failed!"

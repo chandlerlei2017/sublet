@@ -6,7 +6,7 @@ class ShowListingsController < ApplicationController
   end
 
   def all_listings
-    @listings = Listing.all
+    @listings = Listing.all - current_user.listings.all
   end
 
   def saved_listings
