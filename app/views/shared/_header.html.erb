@@ -12,7 +12,7 @@
         <div class="dropdown">
           <i class="fas fa-bell fa-lg notify-icon mt-2 mr-2" data-toggle="dropdown"></i>
           <div class="dropdown-menu dropdown-menu dropdown-menu-right">
-            <% current_user.notifications.each do |notification| %>
+            <% current_user.notifications.sort_by { |notif| notif.created_at }.reverse.each do |notification| %>
               <%= link_to "#{notification.email} #{t('notif_message')[notification.notif_type]}", listing_path(listing_id: notification.listing_id), class: "dropdown-item"%>
             <% end %>
           </div>
