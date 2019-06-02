@@ -4,7 +4,7 @@
       <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapse<%= listing.id %>" aria-expanded="false" aria-controls="collapse<%= listing.id %>">
         <h5 class="mb-0 row">
           <div class="col-sm-6">
-            <i class="fa fa-home"></i>
+            <i class="<%= t('building_icon')[listing.building_type] %>"></i>
             <span><%= listing.address %></span>
           </div>
           <div class="col-sm-2">
