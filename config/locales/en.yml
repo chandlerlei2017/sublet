@@ -41,4 +41,7 @@ en:
     2 : "fas fa-walking"
     3 : "fas fa-bus"
     4 : "fas fa-bicycle"
+  notif_message:
+    1 : "left a comment on your listing!"
+    2 : "left a reply to your comment!"
 

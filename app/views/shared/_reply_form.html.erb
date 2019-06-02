@@ -1,5 +1,5 @@
 <div id="comment_<%= local_assigns[:comment_id] %>" class="col-sm-11 offset-sm-1 reply">
-  <%= form_for :reply, url: reply_create_path do |f| %>
+  <%= form_for :reply, url: reply_create_path(listing_id: @listing.id) do |f| %>
     <%= f.hidden_field :email, value: @user.email %>
     <%= f.hidden_field :comment_id, value: local_assigns[:comment_id] %>
 

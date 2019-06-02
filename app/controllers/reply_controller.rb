@@ -1,10 +1,11 @@
-class ReplyController < ApplicationController
+class ReplyController < ListingsBaseController
   before_action :authenticate_user!
 
   def create
     reply = Reply.new(create_reply_params)
 
     if reply.save
+      send_notification(current_user.email, 2)
       flash[:notice] = "Reply succesfully added!"
     else
       flash[:notice] = "Reply could not be added"

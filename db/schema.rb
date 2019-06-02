@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_002145) do
+ActiveRecord::Schema.define(version: 2019_06_02_012626) do
 
   create_table "applied_listings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -59,12 +59,13 @@ ActiveRecord::Schema.define(version: 2019_06_02_002145) do
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "type"
+    t.integer "notif_type"
     t.integer "user_id"
     t.boolean "read"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "listing_id"
+    t.string "email"
   end
 
   create_table "replies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
