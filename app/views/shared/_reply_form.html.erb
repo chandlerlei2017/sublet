@@ -1,15 +1,17 @@
-<div id="comment_<%= local_assigns[:comment_id] %>" class="col-sm-11 offset-sm-1 reply">
-  <%= form_for :reply, url: reply_create_path(listing_id: @listing.id) do |f| %>
-    <%= f.hidden_field :email, value: @user.email %>
-    <%= f.hidden_field :comment_id, value: local_assigns[:comment_id] %>
+<div class="row mt-3">
+  <div id="comment_<%= local_assigns[:comment_id] %>" class="col-sm-11 offset-sm-1 reply">
+    <%= form_for :reply, url: reply_create_path(listing_id: @listing.id) do |f| %>
+      <%= f.hidden_field :email, value: @user.email %>
+      <%= f.hidden_field :comment_id, value: local_assigns[:comment_id] %>
 
-    <div class="form-group">
-      <%= f.label "Reply" %>
-      <%= f.text_area :body, class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label "Reply" %>
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
 
-    <%= f.submit "post reply!", class: "btn btn-primary" %>
-  <% end %>
+      <%= f.submit "post reply!", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 <script>
