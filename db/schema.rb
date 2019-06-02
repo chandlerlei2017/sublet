@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_012626) do
+ActiveRecord::Schema.define(version: 2019_06_02_202011) do
 
   create_table "applied_listings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_06_02_012626) do
     t.integer "transport_mode"
     t.string "uw_commute"
     t.string "laurier_commute"
+    t.integer "building_type"
+    t.integer "utilities"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

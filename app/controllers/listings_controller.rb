@@ -52,7 +52,9 @@ class ListingsController < ListingsBaseController
       :description,
       :cost,
       :start_date,
-      :end_date
+      :end_date,
+      :building_type,
+      :utilities
     )
   end
 end
