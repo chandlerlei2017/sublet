@@ -4,7 +4,10 @@ class Listing < ApplicationRecord
   include HTTParty
 
   belongs_to :user
+
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+
   has_and_belongs_to_many :saved_listings
   has_and_belongs_to_many :applied_listings
 
