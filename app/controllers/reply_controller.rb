@@ -5,7 +5,8 @@ class ReplyController < ListingsBaseController
     reply = Reply.new(create_reply_params)
 
     if reply.save
-      send_notification(current_user.email, 2)
+      comment = Comment.find_by(id: create_reply_params['comment_id'])
+      send_notification(comment.user, 2)
       flash[:notice] = "Reply succesfully added!"
     else
       flash[:notice] = "Reply could not be added"

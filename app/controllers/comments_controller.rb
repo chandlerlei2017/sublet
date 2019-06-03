@@ -5,7 +5,7 @@ class CommentsController < ListingsBaseController
     comment = Comment.new(create_comment_params)
 
     if comment.save
-      send_notification(current_user.email, 1)
+      send_notification(current_listing.user, 1)
       flash[:notice] = "Comment succesfully added!"
     else
       flash[:notice] = "Comment could not be added"

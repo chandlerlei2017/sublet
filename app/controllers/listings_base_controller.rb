@@ -1,8 +1,8 @@
 class ListingsBaseController < ApplicationController
   before_action :authenticate_user!
 
-  def send_notification(email, type)
-    notification = Notification.new(listing: current_listing, user: current_listing.user, read: false, email: email, notif_type: type)
+  def send_notification(user, type)
+    notification = Notification.new(listing: current_listing, user: user, read: false, email: current_user.email, notif_type: type)
     notification.save
   end
 
