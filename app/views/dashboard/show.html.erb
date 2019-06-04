@@ -21,20 +21,19 @@
   </ol>
 
   <div class="carousel-inner">
-
     <% for i in 0..(@all_listings.count - 1) do %>
       <% if i == 0 %>
         <div class="carousel-item active">
       <% else %>
         <div class="carousel-item">
       <% end %>
-        <div class="d-block w-100 p-5" style="background: #999999;">
+        <div class="d-block w-500 p-5" style="background: #999999;">
           <div class="row">
             <div class="col-sm-6 m-0" style="color: white">
               <span><strong>Lister: </strong> <%= @all_listings[i].user.email%> </span>
             </div>
             <div class="col-sm-6 m-0">
-              <div id="map1" style="height: 350px"></div>
+              <div id="map-<%= i %>" style="height: 350px"></div>
             </div>
           </div>
         </div>
@@ -53,6 +52,8 @@
 </div>
 <script>
   $( document ).ready(function() {
-      //showMap("<%= @all_listings.first.address %>", "map1");
+      <% for i in 0..(@all_listings.count - 1) do %>
+        //showMap("<%= @all_listings[i].address %>", "map-<%= i %>");
+      <% end %>
   });
 </script>
