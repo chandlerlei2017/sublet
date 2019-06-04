@@ -9,7 +9,7 @@
 </div>
 
 
-<div id="carouselExampleIndicators" class="carousel slide mt-3 rounded" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel">
   <ol class="carousel-indicators">
     <% for i in 0..(@all_listings.count - 1) do %>
       <% if i == 0 %>
@@ -20,7 +20,7 @@
     <% end %>
   </ol>
 
-  <div class="carousel-inner">
+  <div class="carousel-inner form">
     <% for i in 0..(@all_listings.count - 1) do %>
       <% if i == 0 %>
         <div class="carousel-item active">
@@ -28,12 +28,26 @@
         <div class="carousel-item">
       <% end %>
         <div class="d-block w-500 p-5" style="background: #999999;">
-          <div class="row">
-            <div class="col-sm-6 m-0" style="color: white">
-              <span><strong>Lister: </strong> <%= @all_listings[i].user.email%> </span>
-            </div>
+          <div class="row carousel-form form">
             <div class="col-sm-6 m-0">
-              <div id="map-<%= i %>" style="height: 350px"></div>
+              <span><strong>Name: </strong> <%= @all_listings[i].name %></span>
+              <br/>
+              <span><strong>Lister: </strong> <%= @all_listings[i].user.email %> </span>
+              <br/>
+              <span><strong>Address: </strong> <%= @all_listings[i].address %></span>
+              <br/>
+              <span><strong>Cost/month: $</strong><%= @all_listings[i].cost %></span>
+              <br/>
+              <span><strong>Start Date: </strong> <%= @all_listings[i].start_date.strftime("%m, %d, %Y") %></span>
+              <br/>
+              <span><strong>End Date: </strong> <%= @all_listings[i].end_date.strftime("%m, %d, %Y") %></span>
+              <br/>
+              <span><strong>UW commute time (<%= @all_listings[i].commute_mode %>): </strong> <%= @all_listings[i].uw_commute %></span>
+              <br/>
+              <span><strong>Laurier commute time (<%= @all_listings[i].commute_mode %>): </strong> <%= @all_listings[i].laurier_commute %></span>
+            </div>
+            <div class="col-sm-6 m-0 p-2">
+              <div id="map-<%= i %>" class="form" style="height: 350px"></div>
             </div>
           </div>
         </div>
@@ -42,18 +56,18 @@
   </div>
 
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon" aria-hidden="true" style="margin-right: 100px;"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="carousel-control-next-icon" aria-hidden="true" style="margin-left: 100px;"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
 <script>
   $( document ).ready(function() {
       <% for i in 0..(@all_listings.count - 1) do %>
-        //showMap("<%= @all_listings[i].address %>", "map-<%= i %>");
+        showMap("<%= @all_listings[i].address %>", "map-<%= i %>");
       <% end %>
   });
 </script>
