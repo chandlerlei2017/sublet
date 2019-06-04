@@ -1,9 +1,11 @@
-<div class="col-sm-6 offset-sm-3 text-center">
-  <h2>Welcome to UW Sublet!!</h2>
-  <div class ="col-sm-6 offset-sm-3 mt-4">
-    <%= link_to "Sign in!", sign_in_path, class: "btn btn-primary btn-block" %>
-  </div>
-  <div class ="col-sm-6 offset-sm-3 mt-4">
-    <%= link_to "Register!", sign_up_path, class: "btn btn-primary btn-block"%>
+<div class="hero-image hero-home">
+  <div class="hero-text">
+    <div class="col-sm-8 offset-sm-2 text-center">
+      <h2>Welcome to UW Sublet!!</h2>
+      <div class="row">
+        <%= link_to "Sign in!", sign_in_path, class: "btn btn-primary btn-block btn-white mt-3 rounded" %>
+        <%= link_to "Register!", sign_up_path, class: "btn btn-primary btn-block btn-white mt-3 rounded"%>
+      </div>
+    </div>
   </div>
 </div>

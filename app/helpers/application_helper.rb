@@ -19,4 +19,7 @@ module ApplicationHelper
       date.strftime('%m, %d, %Y')
     end
   end
+  def current_path
+    current_uri = request.env['PATH_INFO']
+  end
 end
