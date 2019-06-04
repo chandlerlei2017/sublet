@@ -1,9 +1,9 @@
-function showMap(address) {
+function showMap(address, element) {
   var geocoder = new google.maps.Geocoder();
 
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
-      var newMap = new google.maps.Map(document.getElementById('map'), {
+      var newMap = new google.maps.Map(document.getElementById(element), {
         zoom: 15
       });
       newMap.setCenter(results[0].geometry.location);
