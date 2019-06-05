@@ -48,3 +48,6 @@ en:
     1 : "left a comment on your listing!"
     2 : "left a reply to your comment!"
     3 : "has applied to your listing!"
+  utilities:
+    1 : "Included"
+    2 : "Extra"

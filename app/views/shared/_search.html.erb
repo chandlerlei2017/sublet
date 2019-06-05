@@ -1,0 +1,58 @@
+<div id="mySidenav" class="sidenav form">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <%= form_tag(search_path, method: :get) do %>
+    <div class="pl-3 pr-3">
+      <%= hidden_field_tag 'path', current_path %>
+      <div class="form-group">
+        <%= label_tag "Address" %>
+        <%= text_field_tag 'address', '', class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag "Cost" %>
+        <div class="slidecontainer">
+          <%= range_field_tag 'min_cost', '', in: 250..1500, step: 1, class: "slider", value: 250, id: "minRange" %>
+        </div>
+
+        <label>Min Cost: $<span id="min"></span></label>
+
+        <div class="slidecontainer">
+          <%= range_field_tag 'max_cost', '', in: 250..1500, step: 1, class: "slider", value: 1500, id: "maxRange" %>
+        </div>
+
+        <label>Max Cost: $<span id="max"></span></label>
+      </div>
+      <%= submit_tag "Search", class: "btn btn-primary btn-white", name: nil %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  var slider1 = document.getElementById("minRange");
+  var output1 = document.getElementById("min");
+  output1.innerHTML = slider1.value; // Display the default slider value
+
+  var slider2 = document.getElementById("maxRange");
+  var output2 = document.getElementById("max");
+  output2.innerHTML = slider2.value; // Display the default slider value
+
+  // Update the current slider value (each time you drag the slider handle)
+  slider1.oninput = function() {
+    output1.innerHTML = this.value;
+  }
+
+  slider2.oninput = function() {
+    output2.innerHTML = this.value;
+  }
+
+  /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "300px";
+  }
+
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+</script>

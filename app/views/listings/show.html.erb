@@ -26,6 +26,14 @@
       <td><h5><span class="notbold"><%= @listing.address %></span></h5></td>
     </tr>
     <tr>
+      <td><h5>Cost:</h5></td>
+      <td><h5><span class="notbold">$<%= @listing.cost %></span></h5></td>
+    </tr>
+    <tr>
+      <td><h5>Utilities:</h5></td>
+      <td><h5><span class="notbold">$<%= t('utilities')[@listing.utilities] %></span></h5></td>
+    </tr>
+    <tr>
       <td><h5>Available from:</h5></td>
       <td><h5><span class="notbold"><%= @listing.start_date.strftime("%B, %d, %Y") %> &nbsp to &nbsp <%= @listing.end_date.strftime("%B, %d, %Y") %></span></h5></td>
     </tr>

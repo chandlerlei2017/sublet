@@ -1,3 +1,6 @@
-<h2 class="text-center"><%= @title %> (<%= @listings.count %>)</h2>
-<hr class="event-divider"/>
-<%= render 'shared/listings_list', listings: @listings %>
+<div id="main">
+  <h2 class="text-center"><%= @title %> (<%= @listings.count %>) <span onclick="openNav()"><i class="fas fa-search"></i></span> </h2>
+  <hr class="event-divider"/>
+  <%= render 'shared/listings_list', listings: @listings %>
+</div>
+<%= render 'shared/search' %>

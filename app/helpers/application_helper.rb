@@ -19,7 +19,23 @@ module ApplicationHelper
       date.strftime('%m, %d, %Y')
     end
   end
+
   def current_path
     current_uri = request.env['PATH_INFO']
+  end
+
+  def search_path
+    case current_path
+    when "/listings/all"
+      all_listings_path
+    when "/listings/my"
+      my_listings_path
+    when "/listings/saved"
+      saved_listings_path
+    when "/listings/applied"
+      applied_listings_path
+    else
+      user_root_path
+    end
   end
 end
