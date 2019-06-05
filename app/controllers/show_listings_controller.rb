@@ -3,10 +3,14 @@ class ShowListingsController < ApplicationController
 
   def my_listings
     @listings = current_user.listings.all
+    @title = "My Listings"
+    render template: "show_listings/listings_all"
   end
 
   def all_listings
     @listings = Listing.all - current_user.listings.all
+    @title = "All Listings"
+    render template: "show_listings/listings_all"
   end
 
   def saved_listings
@@ -14,6 +18,8 @@ class ShowListingsController < ApplicationController
     current_user.save
 
     @listings = current_user.saved_listing.listings.all
+    @title = "Saved Listings"
+    render template: "show_listings/listings_all"
   end
 
   def applied_listings
@@ -21,5 +27,7 @@ class ShowListingsController < ApplicationController
     current_user.save
 
     @listings = current_user.applied_listing.listings.all
+    @title = "Applied Listings"
+    render template: "show_listings/listings_all"
   end
 end
