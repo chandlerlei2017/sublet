@@ -8,16 +8,16 @@
             <span><%= listing.address %></span>
           </div>
           <div class="col-sm-2">
-            <i class="fas fa-dollar-sign"></i>
-            <span><%= listing.cost %></span>
+            <i class="fas fa-dollar-sign green"></i>
+            <span class="green"><%= listing.cost %></span>
           </div>
           <div class="col-sm-2">
-            <i class="<%= t('commute_icon')[listing.transport_mode] %>" ></i>
-            <span><%= listing.uw_commute %></span>
+            <i class="<%= t('commute_icon')[listing.transport_mode] %> blue" ></i>
+            <span class="blue"><%= listing.uw_commute %></span>
           </div>
           <div class="col-sm-2">
-            <i class="far fa-calendar-alt"></i>
-            <%= listing.created_at.strftime("%m-%d-%Y") %>
+            <i class="far fa-calendar-alt grey"></i>
+            <span class="grey"><%= listing.created_at.strftime("%m-%d-%Y") %></span>
           </div>
         </h5>
       </div>

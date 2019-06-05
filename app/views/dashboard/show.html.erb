@@ -29,7 +29,7 @@
       <% end %>
         <div class="d-block w-100 p-5" style="background: #999999;">
           <div class="row carousel-form form">
-            <div class="col-sm-6 m-0">
+            <div class="col-sm-6 m-0 p-3">
               <span><strong>Name: </strong> <%= @all_listings[i].name %></span>
               <br/>
               <span><strong>Lister: </strong> <%= @all_listings[i].user.email %> </span>
@@ -38,13 +38,16 @@
               <br/>
               <span><strong>Cost/month: $</strong><%= @all_listings[i].cost %></span>
               <br/>
-              <span><strong>Start Date: </strong> <%= @all_listings[i].start_date.strftime("%m, %d, %Y") %></span>
+              <span><strong>Start Date: </strong> <%= @all_listings[i].start_date.strftime("%m-%d-%Y") %></span>
               <br/>
-              <span><strong>End Date: </strong> <%= @all_listings[i].end_date.strftime("%m, %d, %Y") %></span>
+              <span><strong>End Date: </strong> <%= @all_listings[i].end_date.strftime("%m-%d-%Y") %></span>
               <br/>
               <span><strong>UW commute time (<%= @all_listings[i].commute_mode %>): </strong> <%= @all_listings[i].uw_commute %></span>
               <br/>
               <span><strong>Laurier commute time (<%= @all_listings[i].commute_mode %>): </strong> <%= @all_listings[i].laurier_commute %></span>
+              <br/>
+              <span><strong>Description: </strong> <%= @all_listings[i].description %></span>
+              <br/>
             </div>
             <div class="col-sm-6 m-0 p-2">
               <div id="map-<%= i %>" class="form" style="height: 350px"></div>

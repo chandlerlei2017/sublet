@@ -104,3 +104,23 @@ strong {
   transition: transform 2s ease;
   transition: transform 2s ease, -webkit-transform 2s ease;
 }
+
+.green {
+  color: #2E8B57;
+}
+
+.blue {
+  color: #003853;
+}
+
+.grey {
+  color: #828282;
+}
+
+.event-divider {
+  border-top:  2px solid black;
+  transform: rotate(-0.09deg);
+}
+.notbold {
+  font-weight: normal;
+}

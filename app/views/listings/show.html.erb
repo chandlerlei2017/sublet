@@ -16,17 +16,42 @@
   <%= link_to "Unsave listing", listings_save_remove_path(listing_id: @listing.id), method: :post, class: "btn btn-primary mb-3"%>
   <%= render 'shared/apply_listing_button', show: @applied %>
 <% end %>
-<h2>Listing Name: <%= @listing.name %></h2>
-<h5>Address: <%= @listing.address %></h5>
-<h5>Available from: <%= @listing.start_date.strftime("%m, %d, %Y") %> to <%= @listing.end_date.strftime("%m, %d, %Y") %></h5>
-<h5>Commute time to UW(<%= @listing.commute_mode %>): <%= @listing.uw_commute %></h5>
-<h5>Commute time to Laurier(<%= @listing.commute_mode %>): <%= @listing.laurier_commute %></h5>
-<h5>Ammenities: <%= @listing.ammenities %> mins</h5>
-<h5>Description: <%= @listing.description %> mins</h5>
-<div id="map" style="height: 350px" class="mt-3 mb-3"></div>
+<h2>Listing Name: <span class="notbold"><%= @listing.name %></span></h2>
+<hr class="event-divider"/>
+
+<table class="table table-bordered form">
+  <tbody>
+    <tr>
+      <td><h5>Address:</h5></td>
+      <td><h5><span class="notbold"><%= @listing.address %></span></h5></td>
+    </tr>
+    <tr>
+      <td><h5>Available from:</h5></td>
+      <td><h5><span class="notbold"><%= @listing.start_date.strftime("%B, %d, %Y") %> &nbsp to &nbsp <%= @listing.end_date.strftime("%B, %d, %Y") %></span></h5></td>
+    </tr>
+    <tr>
+      <td><h5>Commute time (UW <%= @listing.commute_mode %>):</h5></td>
+      <td><h5><span class="notbold"><%= @listing.uw_commute %></span></h5></td>
+    </tr>
+    <tr>
+      <td><h5>Commute time (Laurier <%= @listing.commute_mode %>):</h5></td>
+      <td><h5><span class="notbold"><%= @listing.laurier_commute %></span></h5></td>
+    </tr>
+    <tr>
+      <td><h5>Ammenities:</h5></td>
+      <td><h5><span class="notbold"><%= @listing.ammenities %></span></h5></td>
+    </tr>
+    <tr>
+      <td><h5>Description:</h5></td>
+      <td><h5><span class="notbold"><%= @listing.description %></span></h5></td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="map" style="height: 350px" class="mt-3 mb-3 form"></div>
 
 <h2>Comments</h2>
-<hr/>
+<hr class="event-divider"/>
 
 <% @comments.each do |comment| %>
   <h5><%=comment.email%> said:</h5>
