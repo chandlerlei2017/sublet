@@ -1,0 +1,1 @@
+function showMap(e,t){(new google.maps.Geocoder).geocode({address:e},function(e,o){if("OK"===o){var n=new google.maps.Map(document.getElementById(t),{zoom:15});n.setCenter(e[0].geometry.location);new google.maps.Marker({map:n,position:e[0].geometry.location})}else alert("Geocode was not successful for the following reason: "+o)})}
